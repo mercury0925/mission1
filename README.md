@@ -92,6 +92,20 @@ git version 2.53.0
 - [x] 트러블슈팅 2건 이상 기록
 - [x] VS Code GitHub 연동 및 최종 캡처
 
+### 3.1 검증 방법 요약
+
+| 검증 항목 | 사용 명령 | 확인 기준 | 결과 위치 |
+|---|---|---|---|
+| 터미널 조작 | `pwd`, `ls -la`, `mkdir`, `touch`, `cp`, `mv`, `rm`, `cat` | 생성·변경 결과가 목록에 반영 | [5장](#5-linux-터미널-기본-명령어-실습) |
+| 권한 | `chmod`, `ls -l`, `ls -ld` | 변경 전·후 권한 문자열이 달라짐 | [6장](#6-파일-및-디렉터리-권한-실습) |
+| Docker 점검 | `docker --version`, `docker info` | Server 정보 정상 출력 | [7.1](#71-docker-설치-및-데몬-확인) |
+| 컨테이너 운영 | `run`, `ps -a`, `exec`, `stop`, `logs`, `stats` | Up/Exited 상태와 출력 확인 | [7장](#7-docker-기본-운영-및-컨테이너-실습) |
+| 커스텀 이미지 | `docker build`, `docker images` | `codyssey-web:1.0` 생성 | [8.4](#84-커스텀-이미지-빌드) |
+| 포트 매핑 | `docker run -p`, `curl` | 8080/8081에서 HTML 응답 | [8.5](#85-포트-매핑-8080) |
+| 바인드 마운트 | `docker run -v $(pwd)/site:...`, `curl` | 재빌드 없이 변경 반영 | [9장](#9-docker-바인드-마운트-실습) |
+| 볼륨 영속성 | `docker volume create`, `docker rm`, `cat` | 컨테이너 삭제 후에도 데이터 유지 | [10장](#10-docker-볼륨-영속성-실습) |
+| Git/GitHub | `git config --list`, `git remote -v`, `git push` | 설정값·원격 연동 확인 | [11장](#11-git-및-github-연동) |
+
 ---
 
 ## 4. 프로젝트 디렉터리 구조
