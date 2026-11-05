@@ -15,7 +15,7 @@ Windows 11 환경에서 WSL2 Ubuntu를 설치하고, Linux 터미널, Docker, Gi
 - Docker 볼륨을 이용한 데이터 영속성 검증
 - Git 저장소 초기화 및 GitHub 원격 저장소 업로드
 - 개발 환경 구축 중 발생한 오류 분석 및 해결
-- VS Code와 GitHub 연동 (진행 예정)
+- VS Code의 WSL 확장 프로그램 및 Git 저장소 연동
 
 실습 과정에서 사용한 명령어와 실행 결과를 기록하고, 증거 스크린샷을 `docs/images/`에 저장하였다.
 
@@ -776,13 +776,15 @@ docker volume inspect codyssey-data
 
 ## 11. Git 및 GitHub 연동
 
-### 11.1 Git 사용자 정보 설정
+### 11.1 Git 사용자 정보 및 기본 브랜치 설정
 
 Git 커밋 작성자 정보와 기본 브랜치를 설정하였다.
 
+설정 명령어:
+
 ```bash
 git config --global user.name "Kang-min Han"
-git config --global user.email "본인 이메일"
+git config --global user.email "your-email@example.com"
 git config --global init.defaultBranch main
 ```
 
@@ -792,9 +794,21 @@ git config --global init.defaultBranch main
 git config --list
 ```
 
-Git 작성자 이름은 커밋 기록에 사용되며, GitHub 로그인 아이디와는 다르다.
+실제 출력 결과(주요 항목 발췌, 이메일 마스킹):
 
-![Git 설정 및 초기화](docs/images/39-git-config-init.png)
+```text
+user.name=Kang-min Han
+user.email=********@naver.com
+init.defaultbranch=main
+remote.origin.url=https://github.com/mercury0925/mission1.git
+branch.main.remote=origin
+branch.main.merge=refs/heads/main
+```
+
+Git 사용자 정보와 기본 브랜치가 정상적으로 설정되었으며, GitHub 원격 저장소와 `main` 브랜치 연결도 확인하였다.
+
+![Git 설정 및 저장소 초기화](docs/images/39-git-config-init.png)
+![git config --list 결과](docs/images/40-git-config-list.png)
 
 ### 11.2 Git 저장소 초기화
 
@@ -894,6 +908,14 @@ VS Code에서 다음 사항을 확인하였다.
 이를 통해 VS Code에서 WSL 기반 Git 프로젝트를 관리할 수 있음을 확인하였다.
 
 ![VS Code WSL 및 Git 연동 확인](docs/images/45-vscode-github.png)
+
+### VS Code GitHub 계정 로그인 확인
+
+VS Code 계정 메뉴에서 `mercury0925 (GitHub)`가 표시되는 것을 확인하였다.
+
+이를 통해 VS Code에서 GitHub 계정 로그인이 완료되었음을 검증하였다.
+
+![VS Code GitHub 계정 로그인 확인](docs/images/46-vscode-github-login.png)
 
 ---
 
